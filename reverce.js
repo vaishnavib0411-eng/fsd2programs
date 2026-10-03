@@ -1,17 +1,12 @@
-const readline = require("readline");
+let sentence = "my name is raja";
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+let words = sentence.split(" ");
+let result = "";
 
-rl.question("Enter a sentence: ", function(sentence) {
-    const result = sentence
-        .split(" ")
-        .map(word => word.split("").reverse().join(""))
-        .join(" ");
+for (let word of words) {
+    result += word.split("").reverse().join("") + " ";
+}
 
-    console.log("Reversed sentence:", result);
+console.log("Input:", sentence);
+console.log("Output:", result.trim());
 
-    rl.close();
-});
